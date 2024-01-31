@@ -1,0 +1,47 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Shared.Entities
+{
+    [Table("HABERLER")]
+
+    public class Haberler
+    {
+        [Key]
+        [Column("ID")]
+        public int Id { get; set; }
+
+        [Column("BASLIK")]
+        public string? Baslik { get; set; }
+
+        [Column("EKLEME_TARIHI")]
+        public DateTime EklenmeTarihi { get; set; }
+
+        [Column("Yazar_ID")]
+        public int YazarId { get; set; }
+
+        [Column("KATEGORI_ID")]
+        public int KategoriID { get; set; }
+
+        [Column("ICERIK")]
+        public string? Icerik {  get; set; }
+
+        [Column("VIDEO")]
+        public string? Video { get; set; }
+
+        [Column("RESIM")]
+        public string? Resim { get; set; }
+
+        [Column("GOSTERIM_SAYISI")]
+        public int GosterimSayisi { get; set; }
+
+        [Column("AKTIFMI")]
+        public bool AktifMi {  get; set; }
+
+    }
+}
