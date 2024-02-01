@@ -5,7 +5,9 @@ VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{B06C3BA7-C4E6-4CC3-A40F-58558985A614}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{AF78B5AA-C8DC-4A54-B0CA-D05A8291497E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "Shared\Shared.csproj", "{AF78B5AA-C8DC-4A54-B0CA-D05A8291497E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiUl", "ApiUl\ApiUl.csproj", "{8EA0DD39-3318-4952-9D5B-82A736FF2D9E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{AF78B5AA-C8DC-4A54-B0CA-D05A8291497E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF78B5AA-C8DC-4A54-B0CA-D05A8291497E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF78B5AA-C8DC-4A54-B0CA-D05A8291497E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EA0DD39-3318-4952-9D5B-82A736FF2D9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EA0DD39-3318-4952-9D5B-82A736FF2D9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EA0DD39-3318-4952-9D5B-82A736FF2D9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EA0DD39-3318-4952-9D5B-82A736FF2D9E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
