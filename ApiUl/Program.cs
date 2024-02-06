@@ -24,7 +24,7 @@ builder.Services.AddScoped<IRepository<Haberler>, Repository<Haberler>>();
 builder.Services.AddScoped<IRepository<Kategoriler>, Repository<Kategoriler>>();
 builder.Services.AddScoped<IRepository<Slaytlar>, Repository<Slaytlar>>();
 builder.Services.AddScoped<IRepository<Yazarlar>, Repository<Yazarlar>>();
-builder.Services.AddScoped<IRepository<Yazarlar>, Repository<Yazarlar>>();
+builder.Services.AddScoped<IRepository<Yorumlar>, Repository<Yorumlar>>();
 
 #endregion
 
