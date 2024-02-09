@@ -1,3 +1,5 @@
+using Business.Abstract;
+using Business.Base;
 using DataAccess.Absract.Repository;
 using DataAccess.Base.Repository;
 using DataAccess.Context;
@@ -18,14 +20,22 @@ builder.Services.AddDbContext<HaberContext>(opt => opt.UseSqlServer("Server=DESK
 
 //Yaþam dongüsü adý verilen bir olay belirlendi
 #region DependencyInjection 
+//Data Access Start Burdan baslýyor
 builder.Services.AddScoped<DbContext, HaberContext>();
-
 builder.Services.AddScoped<IRepository<Haberler>, Repository<Haberler>>();
 builder.Services.AddScoped<IRepository<Kategoriler>, Repository<Kategoriler>>();
 builder.Services.AddScoped<IRepository<Slaytlar>, Repository<Slaytlar>>();
 builder.Services.AddScoped<IRepository<Yazarlar>, Repository<Yazarlar>>();
 builder.Services.AddScoped<IRepository<Yorumlar>, Repository<Yorumlar>>();
+//Data Access Finish
 
+//Bussness Start
+builder.Services.AddScoped<IHaberService, HaberManager>();
+builder.Services.AddScoped<IKategoriServices, KategoriManager>();
+builder.Services.AddScoped<ISlaytServices, SlaytManager>();
+builder.Services.AddScoped<IYazarService, YazarManager>();
+builder.Services.AddScoped<IYorumService, YorumManager>();
+//Bussness Finish
 #endregion
 
 var app = builder.Build();
