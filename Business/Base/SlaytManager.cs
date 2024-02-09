@@ -61,7 +61,7 @@ namespace Business.Base
 
         public bool DeleteSlaytlar(int id)
         {
-            return _slaytRepository.Delete(new Slaytlar());
+            return _slaytRepository.Delete(new Slaytlar { Id = id});
         }
 
         private SlaytlarDto SlaytItem(Slaytlar model)
