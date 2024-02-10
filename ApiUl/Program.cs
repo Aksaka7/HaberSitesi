@@ -31,7 +31,7 @@ builder.Services.AddScoped<IRepository<Yorumlar>, Repository<Yorumlar>>();
 
 //Bussness Start
 builder.Services.AddScoped<IHaberService, HaberManager>();
-builder.Services.AddScoped<IKategoriServices, KategoriManager>();
+builder.Services.AddScoped<IKategoriService, KategoriManager>();
 builder.Services.AddScoped<ISlaytServices, SlaytManager>();
 builder.Services.AddScoped<IYazarService, YazarManager>();
 builder.Services.AddScoped<IYorumService, YorumManager>();

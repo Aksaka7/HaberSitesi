@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Business.Abstract
 {
-    public interface IKategoriServices
+    public interface IKategoriService
     {
         List<KategorilerDto> GetKategorilerList();
         KategorilerDto GetKategoriById(int id);

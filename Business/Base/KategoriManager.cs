@@ -5,7 +5,7 @@ using Shared.Entities;
 
 namespace Business.Base
 {
-    public class KategoriManager : IKategoriServices
+    public class KategoriManager : IKategoriService
     {
         private readonly IRepository<Kategoriler> _kategorilerRepository;
 
