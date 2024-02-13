@@ -1,8 +1,42 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+@using Shared.Dtos
+@model List<HaberlerDto>
+
+<div class="col-md-12 col-lg-12">
+    <div class="card">
+        <div class="card-header">Basic DataTables Table</div>
+        <div class="card-body">
+            <p class="card-title"></p>
+            <table class="table table-hover" id="dataTables-example" width="100%">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Baslık</th>
+                        <th>Özet</th>
+                        <th>Goruntulenme</th>
+                        <th>Tarih</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Id</td>
+                            <td>@item.Baslik</td>
+                            <td>@item.Icerik</td>
+                            <td>@item.GosterimSayisi</td>
+                            <td>@item.EklenmeTarihi</td>
+                        </tr>
+                    }                     
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
+

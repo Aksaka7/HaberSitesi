@@ -1,7 +1,19 @@
+using ApiAccess.Absract;
+using ApiAccess.Base;
+using Shared.Helpers.Abstract;
+using Shared.Helpers.Base;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+#region DependencyInjection
+//HElperlara burdan baglanýyoruz.
+builder.Services.AddScoped<IRequestService, RequestManager>();
+builder.Services.AddScoped<IHaberApiRequest, HaberApiRequest>();
+
+#endregion
 
 var app = builder.Build();
 

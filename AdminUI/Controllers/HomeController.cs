@@ -1,32 +1,20 @@
-using AdminUI.Models;
+﻿using ApiAccess.Absract;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
 
 namespace AdminUI.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly IHaberApiRequest _haberApiRequest;
+        public HomeController(IHaberApiRequest haberApiRequest)
         {
-            _logger = logger;
+            _haberApiRequest = haberApiRequest;
         }
 
         public IActionResult Index()
         {
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            var haberler = _haberApiRequest.GetHaberler();
+            return View(haberler);
         }
     }
 }
