@@ -1,12 +1,6 @@
 ﻿using ApiAccess.Absract;
 using Shared.Dtos;
-using Shared.Entities;
 using Shared.Helpers.Abstract;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ApiAccess.Base
 {

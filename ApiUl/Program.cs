@@ -29,7 +29,7 @@ builder.Services.AddScoped<IRepository<Yazarlar>, Repository<Yazarlar>>();
 builder.Services.AddScoped<IRepository<Yorumlar>, Repository<Yorumlar>>();
 //Data Access Finish
 
-//Bussness Start
+//Business Start
 builder.Services.AddScoped<IHaberService, HaberManager>();
 builder.Services.AddScoped<IKategoriService, KategoriManager>();
 builder.Services.AddScoped<ISlaytServices, SlaytManager>();
