@@ -4,7 +4,9 @@ using Shared.Dtos;
 
 namespace ApiUl.Controllers
 {
-    public class YazarController : Controller
+    [Route("api/[controller]")]
+    [ApiController]
+    public class YazarController : ControllerBase
     {
         private readonly IYazarService _yazarService;
         public YazarController(IYazarService yazarService)

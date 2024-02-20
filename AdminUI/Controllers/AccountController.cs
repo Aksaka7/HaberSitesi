@@ -34,7 +34,7 @@ namespace AdminUI.Controllers
                     var identity = new ClaimsIdentity(claims, "Login");
                     ClaimsPrincipal principal = new ClaimsPrincipal(identity);
                     await HttpContext.SignInAsync(principal);
-                    return RedirectToAction("Index,Home");
+                    return RedirectToAction("Index","Home");
                 }
                 else
                 {
