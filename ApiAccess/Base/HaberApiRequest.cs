@@ -15,10 +15,8 @@ namespace ApiAccess.Base
 
         public List<HaberlerDto> GetHaberler() => _requestService.Get<List<HaberlerDto>>("Haberler/GetAllHaber");
 
-        public HaberlerDto GetHaberById(int id)
-        {
-            throw new NotImplementedException();
-        }
+        public HaberlerDto GetHaberById(int id) => _requestService.Get<HaberlerDto>("Haberler/GetHaberById");
+        
 
         public HaberlerDto InsertHaber(HaberlerDto model)
         {

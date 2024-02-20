@@ -2,6 +2,7 @@ using ApiAccess.Absract;
 using ApiAccess.Base;
 using Shared.Helpers.Abstract;
 using Shared.Helpers.Base;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,8 +13,10 @@ builder.Services.AddControllersWithViews();
 //HElperlara burdan baglanýyoruz.
 builder.Services.AddScoped<IRequestService, RequestManager>();
 builder.Services.AddScoped<IHaberApiRequest, HaberApiRequest>();
-
+builder.Services.AddScoped<IYazarApiRequest, YazarApiRequest>();
 #endregion
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(x => { x.LoginPath = "/Account/Login"; });
 
 var app = builder.Build();
 
@@ -30,6 +33,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

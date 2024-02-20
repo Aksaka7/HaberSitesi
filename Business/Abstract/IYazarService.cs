@@ -13,6 +13,8 @@ namespace Business.Abstract
 
         YazarlarDto GetYazarById(int id);
 
+        YazarlarDto GetYazarByEmailPassword(string email,string password);
+
         YazarlarDto InsertYazar(YazarlarDto model);
 
         YazarlarDto UpdateYazar(YazarlarDto model);

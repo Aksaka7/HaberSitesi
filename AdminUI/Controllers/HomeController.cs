@@ -1,8 +1,10 @@
 ﻿using ApiAccess.Absract;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AdminUI.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly IHaberApiRequest _haberApiRequest;

@@ -21,7 +21,7 @@ namespace Shared.Dtos
 
         public int HaberID { get; set; }
 
-        public int EklemeTarihi { get; set; }
+        public DateTime EklemeTarihi { get; set; }
 
         public bool AktifMi { get; set; }
     }

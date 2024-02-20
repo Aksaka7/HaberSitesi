@@ -27,7 +27,7 @@ namespace Shared.Entities
         public int HaberID { get; set; }
 
         [Column("EKLEME_TARIHI")]
-        public int EklemeTarihi { get; set; }
+        public DateTime EklemeTarihi { get; set; }
 
         [Column("AKTIFMI")]
         public bool AktifMi { get; set; }

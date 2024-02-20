@@ -2,11 +2,6 @@
 using DataAccess.Absract.Repository;
 using Shared.Dtos;
 using Shared.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Business.Base
 {
@@ -19,14 +14,22 @@ namespace Business.Base
             _yazarlarRepository = yazarlarRepository;
         }
 
+        public YazarlarDto GetYazarByEmailPassword(string email, string password)
+        {
+            var data = _yazarlarRepository.GetAll();
+            var findedData = data.Where(x => x.Email == email && x.Password == password).FirstOrDefault();
+            if (findedData != null)
+                return YazarItem(findedData);
+            else
+                return null;
+
+        }
+
         public YazarlarDto GetYazarById(int id)
         {
             var responseCevp = _yazarlarRepository.GetByID(id);
 
-            YazarlarDto result = YazarItem(responseCevp);
-
-            return result;
-
+            return YazarItem(responseCevp);
         }
 
         public List<YazarlarDto> GetYazarlar()
@@ -35,10 +38,8 @@ namespace Business.Base
             List<YazarlarDto> result = new List<YazarlarDto>();
 
             foreach (var item in response)
-            {
                 result.Add(YazarItem(item));
-            }
-
+            
             return result;
         }
 
@@ -63,32 +64,36 @@ namespace Business.Base
 
         private YazarlarDto YazarItem(Yazarlar model)
         {
-            YazarlarDto result = new YazarlarDto();
-
-            result.ID = model.ID;
-            result.Name = model.Name;
-            result.Surname = model.Surname;
-            result.Email = model.Email;
-            result.Password = model.Password;
-            result.Resim = model.Resim;
-            result.AktifMi = model.AktifMi;
+            YazarlarDto result = new()
+            {
+                ID = model.ID,
+                Name = model.Name,
+                Surname = model.Surname,
+                Email = model.Email,
+                Password = model.Password,
+                Resim = model.Resim,
+                AktifMi = model.AktifMi
+            };
 
             return result;
         }
 
         private Yazarlar YazarItem(YazarlarDto model)
         {
-            Yazarlar result = new Yazarlar();
-
-            result.ID = model.ID;
-            result.Name = model.Name;
-            result.Surname = model.Surname;
-            result.Email = model.Email;
-            result.Password = model.Password;
-            result.Resim = model.Resim;
-            result.AktifMi = model.AktifMi;
+            Yazarlar result = new()
+            {
+                ID = model.ID,
+                Name = model.Name,
+                Surname = model.Surname,
+                Email = model.Email,
+                Password = model.Password,
+                Resim = model.Resim,
+                AktifMi = model.AktifMi
+            };
 
             return result;
         }
+
+
     }
 }
