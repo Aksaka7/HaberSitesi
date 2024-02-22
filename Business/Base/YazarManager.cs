@@ -22,7 +22,6 @@ namespace Business.Base
                 return YazarItem(findedData);
             else
                 return null;
-
         }
 
         public YazarlarDto GetYazarById(int id)

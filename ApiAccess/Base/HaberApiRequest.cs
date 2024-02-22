@@ -11,26 +11,18 @@ namespace ApiAccess.Base
         public HaberApiRequest(IRequestService requestService)
         {
             _requestService = requestService;
-        }     
+        }
 
         public List<HaberlerDto> GetHaberler() => _requestService.Get<List<HaberlerDto>>("Haberler/GetAllHaber");
 
-        public HaberlerDto GetHaberById(int id) => _requestService.Get<HaberlerDto>("Haberler/GetHaberById");
-        
+        public HaberlerDto GetHaberById(int haberId) => _requestService.Get<HaberlerDto>("Haberler/GetHaberById?haberId=" + haberId);
 
-        public HaberlerDto InsertHaber(HaberlerDto model)
-        {
-            throw new NotImplementedException();
-        }
 
-        public HaberlerDto UpdateHaber(HaberlerDto model)
-        {
-            throw new NotImplementedException();
-        }
+        public HaberlerDto InsertHaber(HaberlerDto model) => _requestService.Post<HaberlerDto>("Haberler/InsertHaber", model);
 
-        public bool DeleteHaber(int id)
-        {
-            throw new NotImplementedException();
-        }
+
+        public HaberlerDto UpdateHaber(HaberlerDto model) => _requestService.Post<HaberlerDto>("Haberler/UpdateHaber", model);
+
+        public bool DeleteHaber(int haberId) => _requestService.Get<bool>("/Haberler/DeleteHaber?haberId=" + haberId);
     }
 }

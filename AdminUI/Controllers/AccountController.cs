@@ -3,7 +3,6 @@ using ApiAccess.Absract;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
-using System.Security.Principal;
 
 namespace AdminUI.Controllers
 {
@@ -38,7 +37,7 @@ namespace AdminUI.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("ozelHataMesajı", "Kullanıcı veya şifre hatalı");
+                    ModelState.AddModelError("ozelHataMesaji", "Kullanıcı veya şifre hatalı");
                     return View("Login");
                 }
             }
@@ -49,7 +48,7 @@ namespace AdminUI.Controllers
 
         }
 
-        public async Task<IActionResult> CilisYap()
+        public async Task<IActionResult> CikisYap()
         {
             await HttpContext.SignOutAsync();
             return View("Login");
