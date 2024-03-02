@@ -52,7 +52,7 @@ namespace Business.Base
             return _kategorilerRepository.Delete(new Kategoriler() { Id = id });
         }
 
-        private Kategoriler KategoriItem(KategorilerDto model)
+        private static Kategoriler KategoriItem(KategorilerDto model)
         {
             Kategoriler result = new()
             {
@@ -64,12 +64,14 @@ namespace Business.Base
             return result;
         }
 
-        private KategorilerDto KategoriItem(Kategoriler model)
+        private static KategorilerDto KategoriItem(Kategoriler model)
         {
-            KategorilerDto result = new KategorilerDto();
-            result.Id = model.Id;
-            result.AktifMi = model.AktifMi;
-            result.Aciklama = model.Aciklama;
+            KategorilerDto result = new()
+            {
+                Id = model.Id,
+                AktifMi = model.AktifMi,
+                Aciklama = model.Aciklama
+            };
 
             return result;
         }

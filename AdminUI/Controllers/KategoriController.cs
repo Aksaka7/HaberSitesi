@@ -41,17 +41,12 @@ namespace AdminUI.Controllers
             var data = _kategoriApiRequest.GetKategoriById(kategoriId); //Apideki Kategori Başlıgını aldım.
 
             KategoriViewModel model = new KategoriViewModel();
-            //data.AktifMi = model.AktifMi;
-            //data.Aciklama = model.Aciklama;
-            //data.Id = model.Id.Value;
-
             model.Id = data.Id;
-            model.AktifMi= data.AktifMi;
-            model.Aciklama= data.Aciklama;
+            model.AktifMi = data.AktifMi;
+            model.Aciklama = data.Aciklama;
 
             return View(model);
         }
-
 
         [HttpPost]
         public IActionResult KategoriGuncelle(KategoriViewModel model)
@@ -63,5 +58,12 @@ namespace AdminUI.Controllers
             _kategoriApiRequest.UpdateKategori(kategori);
             return RedirectToAction("Index");
         }
+
+        public IActionResult Sil(int kategoriId) // İlişkili olan taploları silemezsin.
+        {
+            var data = _kategoriApiRequest.DeleteKategori(kategoriId);
+            return RedirectToAction("Index");
+        }
+
     }
 }
