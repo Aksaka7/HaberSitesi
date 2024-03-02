@@ -8,35 +8,51 @@
 @using Shared.Dtos
 @model List<HaberlerDto>
 
-<div class="col-md-12 col-lg-12">
-    <div class="card">
-        <div class="card-header">Basic DataTables Table</div>
-        <div class="card-body">
-            <p class="card-title"></p>
-            <table class="table table-hover" id="dataTables-example" width="100%">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Baslık</th>
-                        <th>Özet</th>
-                        <th>Goruntulenme</th>
-                        <th>Tarih</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach(var item in Model)
-                    {
+<div class="row">
+
+    <div class="col-md-12 col-lg-12">
+        <div class="card">
+            <div class="card-header">Basic DataTables Table</div>
+            <div class="card-body">
+                <p class="card-title"></p>
+                <table class="table table-hover" id="dataTables-example" width="100%">
+                    <thead>
                         <tr>
-                            <td>@item.Id</td>
-                            <td>@item.Baslik</td>
-                            <td>@item.Icerik</td>
-                            <td>@item.GosterimSayisi</td>
-                            <td>@item.EklenmeTarihi</td>
+                            <th>ID</th>
+                            <th>Baslık</th>
+                            <th>Özet</th>
+                            <th>Goruntulenme</th>
+                            <th>Tarih</th>
                         </tr>
-                    }                     
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+
+                        @foreach(var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Id</td>
+                                <td>@item.Baslik</td>
+                                <td>@item.Icerik</td>
+                                <td>@item.GosterimSayisi</td>
+                                <td>@item.EklenmeTarihi</td>
+                                <td>
+                                    @if (item.AktifMi)
+                                    {
+                                        <span class="badge bg-info">Aktif</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-danger">Pasif</span>
+
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
+
 </div>
 

@@ -12,7 +12,7 @@ namespace Shared.Entities
         public int Id { get; set; }
 
         [Column("ACIKLAMA")]
-        public string? Aciklama { get; set; }
+        public string Aciklama { get; set; }
 
         [Column("AKTIFMI")]
         public bool AktifMi { get; set; }

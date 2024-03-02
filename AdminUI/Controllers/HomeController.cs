@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AdminUI.Controllers
 {
-    [Authorize]
+
 
     public class HomeController : Controller
     {
@@ -18,6 +18,11 @@ namespace AdminUI.Controllers
         {
             var haberler = _haberApiRequest.GetHaberler();
             return View(haberler);
+        }
+
+        public IActionResult ActionResult()
+        {
+            return View();
         }
     }
 }

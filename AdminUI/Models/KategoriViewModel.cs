@@ -1,9 +1,11 @@
-﻿namespace Shared.Dtos
+﻿namespace AdminUI.Models
 {
-    public class KategorilerDto
+    public class KategoriViewModel
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string Aciklama { get; set; }
         public bool AktifMi { get; set; }
     }
 }
+
+

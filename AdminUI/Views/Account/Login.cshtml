@@ -32,6 +32,7 @@
                         <img class="brand" src="/assets/img/bootstraper-logo.png" alt="bootstraper logo">
                     </div>
                     <h6 class="mb-4 text-muted">Login to your account</h6>
+                    <span class="text-danger">@Html.ValidationMessage("ozelHataMesaji")</span>
                     @using (Html.BeginForm("GirisYap", "Account", FormMethod.Post))
                     {
 
@@ -39,6 +40,7 @@
                             <label for="email" class="form-label">Email adress</label>
                             @Html.TextBoxFor(x => x.Email, new { @class = "form-control", placeholder = "E-Posta", type = "email" })
                             <span class="text-danger">@Html.ValidationMessageFor(x => x.Email)</span>
+
                         </div>
                         <div class="mb-3 text-start">
                             <label for="password" class="form-label">Password</label>
@@ -53,7 +55,7 @@
                                 </label>
                             </div>
                         </div>
-                         <span class="text-danger">@Html.ValidationMessage("ozelHataMesaji")</span>
+                         
                          <br >
                         <button type="submit" class="btn btn-primary shadow-2 mb-4">Login</button>
 

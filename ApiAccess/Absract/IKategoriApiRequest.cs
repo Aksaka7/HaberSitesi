@@ -10,8 +10,8 @@ namespace ApiAccess.Absract
     public interface IKategoriApiRequest
     {
         List<KategorilerDto> GetKategoriler();
-        KategorilerDto KategoriEkle(KategorilerDto model);
         KategorilerDto GetKategoriById(int kategoriId);
+        KategorilerDto KategoriEkle(KategorilerDto model);
         KategorilerDto UpdateKategori(KategorilerDto model);
         bool DeleteKategori(int kategoriId);
     }

@@ -17,10 +17,8 @@ namespace ApiAccess.Base
             return _requestService.Get<List<KategorilerDto>>("/Kategori/GetAllKategori");
         }
 
-        public KategorilerDto GetKategoriById(int kategoriId)
-        {
-            return _requestService.Get<KategorilerDto>("/Kategori/GetByIdKategori?kategoriId=" + kategoriId);
-        }
+        public KategorilerDto GetKategoriById(int kategoriId) => _requestService.Get<KategorilerDto>("/Kategori/GetByIdKategori?kategoriId=" + kategoriId);
+        
 
         public KategorilerDto KategoriEkle(KategorilerDto model)
         {

@@ -18,15 +18,13 @@ namespace Business.Base
         {
             var response = _kategorilerRepository.GetByID(id);
 
-            KategorilerDto result = KategoriItem(response);
-
-            return result;
-        }      
+            return KategoriItem(response);
+        }
 
         public List<KategorilerDto> GetKategorilerList()
         {
             var response = _kategorilerRepository.GetAll().ToList();
-            List<KategorilerDto> result = new List<KategorilerDto>();
+            List<KategorilerDto> result = [];
 
             foreach (var item in response)
                 result.Add(KategoriItem(item));
@@ -56,11 +54,12 @@ namespace Business.Base
 
         private Kategoriler KategoriItem(KategorilerDto model)
         {
-            Kategoriler result = new Kategoriler();
-
-            result.Id = model.Id;
-            result.AktifMi = model.AktifMi;
-            result.Aciklama = model.Aciklama;
+            Kategoriler result = new()
+            {
+                Id = model.Id,
+                AktifMi = model.AktifMi,
+                Aciklama = model.Aciklama
+            };
 
             return result;
         }
@@ -68,7 +67,6 @@ namespace Business.Base
         private KategorilerDto KategoriItem(Kategoriler model)
         {
             KategorilerDto result = new KategorilerDto();
-
             result.Id = model.Id;
             result.AktifMi = model.AktifMi;
             result.Aciklama = model.Aciklama;

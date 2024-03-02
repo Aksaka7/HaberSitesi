@@ -21,7 +21,7 @@ namespace ApiUl.Controllers
 
         [HttpGet]
         [Route("GetByIdKategori")]
-        public KategorilerDto GetByIdKategori(int id) => _kategoriService.GetKategoriById(id);
+        public KategorilerDto GetByIdKategori(int kategoriId) => _kategoriService.GetKategoriById(kategoriId);
 
         [HttpGet]
         [Route("DeleteKategori")]
