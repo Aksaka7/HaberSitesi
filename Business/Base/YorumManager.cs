@@ -99,7 +99,6 @@ namespace Business.Base
                 AktifMi = model.AktifMi,
                 HaberBaslik = _haberRepository.GetByID(model.HaberId).Baslik
             };
-
             return result;
         }
     }
