@@ -23,8 +23,11 @@ namespace Shared.Entities
         [Column("ICERIK")]
         public string? Icerik { get; set; }
 
+        [Column("BASLIK")]
+        public string? Baslik { get; set; }
+
         [Column("HABER_ID")]
-        public int HaberID { get; set; }
+        public int HaberId { get; set; }
 
         [Column("EKLEME_TARIHI")]
         public DateTime EklemeTarihi { get; set; }

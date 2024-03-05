@@ -16,24 +16,24 @@ namespace ApiUl.Controllers
         }
 
         [HttpGet]
-        [Route("GetSlaytAll")]
-        public List<YorumlarDto> GetSlaytAll() => _yorumService.GetYorumlar();
+        [Route("GetYorumAll")]
+        public List<YorumlarDto> GetYorumAll() => _yorumService.GetYorumlar();
 
         [HttpGet]
         [Route("GetYorumById")]
-        public YorumlarDto GetYorumById(int slaytId) => _yorumService.GetYorumById(slaytId);
+        public YorumlarDto GetYorumById(int yorumId) => _yorumService.GetYorumById(yorumId);
 
         [HttpGet]
         [Route("DeleteYorum")]
-        public bool DeleteSlayt(int yazarId) => _yorumService.DeleteYorum(yazarId);
+        public bool DeleteYorum(int yorumId) => _yorumService.DeleteYorum(yorumId);
 
         [HttpPost]
-        [Route("InsertSlayt")]
-        public YorumlarDto InsertSlayt(YorumlarDto model) => _yorumService.InsertYorum(model);
+        [Route("InsertYorum")]
+        public YorumlarDto InsertYorum(YorumlarDto model) => _yorumService.InsertYorum(model);
 
         [HttpPost]
-        [Route("UpdateSlayt")]
-        public YorumlarDto UpdatUpdateSlayteYazar(YorumlarDto model) => _yorumService.UpdateYorum(model);
+        [Route("UpdateYorum")]
+        public YorumlarDto UpdateYorum(YorumlarDto model) => _yorumService.UpdateYorum(model);
     }
 }
 

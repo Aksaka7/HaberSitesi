@@ -22,19 +22,19 @@ namespace ApiAccess.Base
             return _requestService.Get<YorumlarDto>("Yorum/GetYorumById?yorumId=" + yorumId);
         }
 
-        public List<YorumlarDto> GetYorumlar()
+        public List<YorumlarDto> GetTumYorumlar()
         {
-            return _requestService.Get<List<YorumlarDto>>("Yorum/GetSlaytAll");
+            return _requestService.Get<List<YorumlarDto>>("Yorum/GetYorumAll");
         }
 
         public YorumlarDto InsertYorum(YorumlarDto model)
         {
-            return _requestService.Post<YorumlarDto>("Yorum/InsertSlayt", model);
+            return _requestService.Post<YorumlarDto>("Yorum/InsertYorum", model);
         }
 
         public YorumlarDto UpdateYorum(YorumlarDto model)
         {
-            return _requestService.Post<YorumlarDto>("Yorum/UpdateSlayt", model);
+            return _requestService.Post<YorumlarDto>("Yorum/UpdateYorum", model);
         }
     }
 }

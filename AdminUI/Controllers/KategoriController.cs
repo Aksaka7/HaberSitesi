@@ -27,10 +27,12 @@ namespace AdminUI.Controllers
         [HttpPost]
         public IActionResult KategoriEkle(KategoriViewModel model)
         {
-            KategorilerDto kategori = new KategorilerDto();
-            kategori.AktifMi = model.AktifMi;
-            kategori.Aciklama = model.Aciklama;
-            var result = _kategoriApiRequest.KategoriEkle(kategori);
+            KategorilerDto kategori = new()
+            {
+                AktifMi = model.AktifMi,
+                Aciklama = model.Aciklama
+            };
+            _ = _kategoriApiRequest.KategoriEkle(kategori);
 
             return RedirectToAction("Index");
         }
@@ -40,10 +42,12 @@ namespace AdminUI.Controllers
         {
             var data = _kategoriApiRequest.GetKategoriById(kategoriId); //Apideki Kategori Başlıgını aldım.
 
-            KategoriViewModel model = new KategoriViewModel();
-            model.Id = data.Id;
-            model.AktifMi = data.AktifMi;
-            model.Aciklama = data.Aciklama;
+            KategoriViewModel model = new()
+            {
+                Id = data.Id,
+                AktifMi = data.AktifMi,
+                Aciklama = data.Aciklama
+            };
 
             return View(model);
         }
@@ -51,21 +55,20 @@ namespace AdminUI.Controllers
         [HttpPost]
         public IActionResult KategoriGuncelle(KategoriViewModel model)
         {
-            KategorilerDto kategori = new KategorilerDto();
-            kategori.Id = model.Id.Value;
-            kategori.AktifMi = model.AktifMi;
-            kategori.Aciklama = model.Aciklama;
+            KategorilerDto kategori = new()
+            {
+                Id = model.Id.Value,
+                AktifMi = model.AktifMi,
+                Aciklama = model.Aciklama
+            };
             _kategoriApiRequest.UpdateKategori(kategori);
             return RedirectToAction("Index");
         }
 
         public IActionResult Sil(int kategoriId) // İlişkili olan taploları silemezsin.
         {
-            var data = _kategoriApiRequest.DeleteKategori(kategoriId);
+            _ = _kategoriApiRequest.DeleteKategori(kategoriId);
             return RedirectToAction("Index");
         }
-
-
-
     }
 }
