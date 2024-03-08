@@ -24,7 +24,7 @@ namespace ApiUl.Controllers
 
         [HttpGet]
         [Route("GetYazarById")]
-        public YazarlarDto GetYazarlarById(int yazarId) => _yazarService.GetYazarById(yazarId);
+        public YazarlarDto GetYazarById(int yazarId) => _yazarService.GetYazarById(yazarId);
 
         [HttpGet]
         [Route("DeleteYazar")]

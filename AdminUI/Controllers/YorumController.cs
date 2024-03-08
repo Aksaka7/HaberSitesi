@@ -1,6 +1,5 @@
 ﻿using AdminUI.Models;
 using ApiAccess.Absract;
-using ApiAccess.Base;
 using Microsoft.AspNetCore.Mvc;
 using Shared.Dtos;
 

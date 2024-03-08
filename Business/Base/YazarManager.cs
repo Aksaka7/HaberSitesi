@@ -38,7 +38,7 @@ namespace Business.Base
 
             foreach (var item in response)
                 result.Add(YazarItem(item));
-            
+
             return result;
         }
 
@@ -51,28 +51,33 @@ namespace Business.Base
 
         public YazarlarDto UpdateYazar(YazarlarDto model)
         {
-            Yazarlar response = _yazarlarRepository.Update(YazarItem(model));
-            YazarlarDto result = YazarItem(response);
-            return result;
+            var yazar = _yazarlarRepository.GetByID(model.Id);
+            yazar.Id = model.Id;
+            yazar.Name = model.Name;
+            yazar.Surname = model.Surname;
+            yazar.Email = model.Email;
+            yazar.Password = model.Password;
+            yazar.Resim = model.Resim;
+            yazar.AktifMi = model.AktifMi;
+            Yazarlar response = _yazarlarRepository.Update(yazar);
+            return YazarItem(response);
         }
 
         public bool DeleteYazarlar(int id)
         {
-            return _yazarlarRepository.Delete(new Yazarlar { ID = id });
+            return _yazarlarRepository.Delete(new Yazarlar { Id = id });
         }
 
         private YazarlarDto YazarItem(Yazarlar model)
         {
-            YazarlarDto result = new()
-            {
-                ID = model.ID,
-                Name = model.Name,
-                Surname = model.Surname,
-                Email = model.Email,
-                Password = model.Password,
-                Resim = model.Resim,
-                AktifMi = model.AktifMi
-            };
+            YazarlarDto result = new YazarlarDto();
+            result.Id = model.Id;
+            result.Name = model.Name;
+            result.Surname= model.Surname;
+            result.Email = model.Email;
+            result.Password = model.Password;
+            result.Resim = model.Resim;
+            result.AktifMi= model.AktifMi;
 
             return result;
         }
@@ -81,7 +86,7 @@ namespace Business.Base
         {
             Yazarlar result = new()
             {
-                ID = model.ID,
+                Id = model.Id,
                 Name = model.Name,
                 Surname = model.Surname,
                 Email = model.Email,
