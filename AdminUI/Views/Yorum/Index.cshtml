@@ -1,0 +1,76 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@using Shared.Dtos
+@model List<YorumlarDto>
+<div class="container">
+
+    <div class="page-title">
+        <h3>Yorum İşlemleri</h3>
+    </div>
+    <div class="row">
+
+        <div class="col-md-12 col-lg-12">
+            <div class="card">
+                <div class="card-header">Yorumlar</div>
+                <div class="offset-10 mt-2">
+                    <a href="/Yorum/Ekle" style="width:120px;" class="btn btn-icon icon-left btn-info float-right mb-2">Yeni Ekle</a> @*Burasını en son ekle*@
+                </div>
+
+                <div class="card-body">
+                    <p class="card-title">Yorumlar ile ilgili tüm işlemleri buradan yapabilirsiniz. Toplam Aktif Kayıt Sayısı: @Model.Where(x => x.AktifMi == true).Count()</p>
+                    <table class="table table-hover" id="dataTables-example" width="100%">
+                        <thead>
+                            <tr>
+                                <th>Ad</th>
+                                <th>Soyad</th>
+                                <th>E-Posta</th>
+                                <th>Başlık</th>
+                                <th>İçerik</th>
+                                <th>Haber</th>
+                                <th>Eklenme Tarihi</th>
+                                <th>Durum</th>
+                                <th>İşlemler</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.Name</td>
+                                    <td>@item.Surname</td>
+                                    <td>@item.Email</td>
+                                    <td>@item.Baslik</td>
+                                    <td>@item.Icerik</td>
+                                    <td>@item.HaberBaslik</td>
+                                    <td>@item.EklemeTarihi</td>
+                                    <td>
+                                        @if (item.AktifMi)
+                                        {
+                                            <span class="badge bg-info">Aktif</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-info bg-danger">Pasif</span>
+                                        }
+                                    </td>
+                                    <td>
+                                        <a href="/Yorum/Guncelle?yorumId=@item.Id" class="btn btn-primary mb-2"><i class="fa fa-edit"></i></a>
+                                        <a href="/Yorum/Sil?yorumId=@item.Id" class="btn btn-danger mb-2" style="width: 44px;"><i class="fa fa-times"></i></a>
+                                    </td>
+
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

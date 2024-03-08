@@ -9,7 +9,7 @@ namespace Shared.Entities
     {
         [Key]
         [Column("ID")]
-        public int ID { get; set; }
+        public int Id { get; set; }
 
         [Column("AD")]
         public string? Name { get; set; }

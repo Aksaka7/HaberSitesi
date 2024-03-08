@@ -1,17 +1,12 @@
 ﻿using Shared.Dtos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ApiAccess.Absract
 {
     public interface IYorumApiRequest
     {
-        List<YorumlarDto> GetYorumlar();
+        List<YorumlarDto> GetTumYorumlar();
 
-        YorumlarDto GetYorumById(int id);
+        YorumlarDto GetYorumById(int yorumId);
 
         YorumlarDto InsertYorum(YorumlarDto model);
 

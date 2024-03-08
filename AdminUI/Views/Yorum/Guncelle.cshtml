@@ -1,0 +1,70 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@using AdminUI.Models
+@model YorumViewModel
+
+<div class="container">
+    <div class="page-title">
+        <h3>Yorum İşlemleri</h3>
+    </div>
+    <div class="row">
+
+        <div class="col-md-12 col-lg-12">
+            <div class="card">
+                <div class="card-header">Yorum Güncelle</div>
+                <div class="card-body">
+                    <p class="card-title">Yorumları güncelleme işlemi yapabilirsiniz.</p>
+
+                    @using (Html.BeginForm("YorumGuncelle", "Yorum", FormMethod.Post))
+                    {
+                        @Html.HiddenFor(x=>x.Id)
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Ad</label>
+                            @Html.TextBoxFor(x => x.Name, new { placeholder = "Ad", @class = "form-control" })
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="surname" class="form-label">Soyad</label>
+                            @Html.TextBoxFor(x => x.Surname, new { placeholder = "Soyad", @class = "form-control" })
+                        </div>
+
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label">E-Posta</label>
+                            @Html.TextBoxFor(x => x.Email, new { placeholder = "E-mail", @class = "form-control" })
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="baslik" class="form-label">Başlık</label>
+                            @Html.TextBoxFor(x => x.Baslik, new { placeholder = "Başlık", @class = "form-control" })
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="icerik" class="form-label">İçerik</label>
+                            @Html.TextBoxFor(x => x.Icerik, new { placeholder = "İçerik", @class = "form-control" })
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="haberId" class="form-label">Haber Id</label>
+                            @Html.TextBoxFor(x => x.HaberId, new { placeholder = "Haber ID", @class = "form-control" })
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="" class="form-label">Statü</label>
+                            <div class="form-check form-switch">
+                                @Html.CheckBoxFor(x => x.AktifMi, new { @class = "form-check-input" })
+                            </div>
+                        </div>
+
+                        <br />
+                        <button type="submit" class="btn-warning">Update</button>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
